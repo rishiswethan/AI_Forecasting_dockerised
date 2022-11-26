@@ -6,3 +6,4 @@
 /docker_app/outputs/
 /docker_app/source/__pycache__/
 /__pycache__/
+/backup/
