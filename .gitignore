@@ -1,0 +1,9 @@
+/docker_app/save_files/
+/docker_app/data/
+/docker_app/.idea/
+/.idea/
+/docker_app/venv/
+/docker_app/inputs/
+/docker_app/outputs/
+/docker_app/source/__pycache__/
+/__pycache__/
