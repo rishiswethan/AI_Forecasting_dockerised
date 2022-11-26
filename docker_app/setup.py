@@ -1,4 +1,5 @@
 import os
+import json
 import source.config as config
 
 def create_folder(new_path):
@@ -13,3 +14,7 @@ create_folder(config.TEST_DATA_FOLDER)
 create_folder(config.OUTPUT_FOLDER_PATH)
 create_folder(config.SAVE_FOLDER)
 print("Folders created")
+
+if not os.path.exists(config.TRAINING_USER_CHOICE_SAVE_PATH):
+    with open(config.TRAINING_USER_CHOICE_SAVE_PATH, 'w') as f:
+        json.dump({{"data_column_number": 2, "id_name": "S1", "model_choice": "LSTM_model", "OS": "windows"}}, f)

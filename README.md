@@ -1,3 +1,6 @@
+Download the docker image for this project in the link below\
+https://hub.docker.com/repository/registry-1.docker.io/rishiswethan/aiforecasting/general
+
 This project is meant to be a plug and play template, for anyone looking to build a univariate forecasting model using LSTM, GRU or RNN.
 This can run on pretty much any univariate forecasting data, as long as it's correctly formatted,
 as seen in the data/rt_benchmark_datasets. This capability is achived because it uses BayesianOptimization of Keras Tuner to find the right hyperparameters.
@@ -7,41 +10,21 @@ have a look at the functions it calls for each user choice.
 
 The program was tested on python 3.10.8, tensorflow 2.10.0 and was tested on windows 11 with a GTX 1080ti. It should work on other hardware and OS was well.
 
-
-# Input File Info:
-
-_data/input_folder/data_train.csv_
-
-The above file should contain the data you wish to train on.
-Rename the target csv file and make sure the file name is the exact same as above.
-This data will be used to forecast and make future predictions.
-(Example: *___train.csv__ in forecasting base can be renamed to __data_train.csv__)
-
-
-_data/input_folder/data_test.csv_
-
-The above file should contain the keys to test the model during forecasting. If data_train.csv contains 500 days of data, and you are trying to test
-the model performance for the next 100 days. This file should contain those 100 days of data.
-(Example: *__test_keys.csv__ in forecasting base can be renamed to __data_test.csv__)
-
 # How to run the program:
-- **Run setup.py**
-- **Save** your train and test csv's in the data/input_folder,
-as _data_train.csv_ and _data_test.csv_ respectively.(Look at data/rt_benchmark_datasets).
-- **Set virtual environment** in windows by running `venv/Scripts/activate`. This allows you to run it without installing anything else, but make sure you have your GPU setup.
-Else install the requirements in other operating systems. 
-- **Use run.py** to run the program.
-- **Set choices** for, which column contains the data you wish to forecast,
-and choose the index name of the data you wish to pull you. These values
-will be saved unless changed in the same way. Next, set the forecasting you'd like to use to train.
-You'll be asked to choose from 3 options:
-  - LSTM
-  - RNN
-  - GRU
-- **Tune the hyperparameters** automatically to fit the new data. After this
-is done, the best hyperparameters will be saved
-- **Train** a new model with the saved hyperparameters
-- You can now **forecast** using the various options available, using the saved model.
+- Either build or pull the docker image from the link
+- **Save** your train and test csv's in the respective training and testing folders.
+- **Set choices** for, which model you wish to use in the save_files "model_choice" parameter
+  - You have 3 options:
+    - "LSTM_model"
+    - "RNN_model"
+    - "GRU_model"
+- Use `docker run rishiswethan/aiforecasting python <program name>` to run the desired program
+- **Use tune.py** to tune the model.
+- **Use train.py** to train the program.
+- **Use test.py** to test the model.
+- **Use forecast.py** to test the model.
+- See **source/run.py** or the commented out function calls in **test.py** to see how to run the other forecasting options you have
+- See **source/config.py** to change path names
 
 # Forecasting options:
 
