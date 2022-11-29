@@ -13,12 +13,18 @@ The program was tested on python 3.10.8, tensorflow 2.10.0 and was tested on win
 
 # How to run the program:
  - #### Follow these steps only if you are not using a docker image:
-   - If windows, activate venv by running `venv/Scripts/activate` after extracting it from the zip file
-   - If linux, install the requirements. I recommend using a venv so that you don't mess with your current installation
+   - Extract venv from the zip file
+   - If windows, activate venv by running `venv/Scripts/activate`
+   - If linux, install the requirements. I recommend using a new venv so that you don't mess with your current installation
    - Run setup.py
 
 
 - **Save** your train and test csv's in the respective training and testing folders.
+  - _*train.csv_ in _/inputs/data/training/_
+  - _*test_key.csv_ in _/inputs/data/testing/_
+  - _*schema.json_ in _/inputs/_
+
+
 - In the **_save_files/user_choice.json_**. Set choices for,
     - Which model you wish to use, _"model_choice"_ parameter. You have 3 options:
       - "LSTM_model"
@@ -26,10 +32,14 @@ The program was tested on python 3.10.8, tensorflow 2.10.0 and was tested on win
       - "GRU_model"
     - If there are multiple id_names, like in the case of stock data which has multiple stock symbols. Choose the right id_name in the _"id_name"_ parameter. If this is not chosen,
 the first id will be chosen by default.
+
+
 - Use `docker run rishiswethan/aiforecasting python <program name>` to run the desired program. Use `python <program name>` in case you don't use docker
 - **Use tune.py** to tune the model.
 - **Use train.py** to train the program.
 - **Use test.py** to test the model in the default (t+1) mode.
+
+
 - See **source/run.py** or the commented out function calls in **test.py** to see how to run the other forecasting options you have.
 - See **source/config.py** to change path names.
 
