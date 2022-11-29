@@ -45,7 +45,7 @@ lr = 0.001  # Initial lr when training
 
 # ---HYPERPARAMETERS TUNE PARAMETERS------------------------------------
 target_tune_steps = 100000
-max_trails = 12
+max_trails = 12  # Currently set to the max number of hyperparameter combinations possible
 # ----------------------------------------------------------------------
 
 # ---NAMES--------------------------------------------------------
