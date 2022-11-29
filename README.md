@@ -14,9 +14,9 @@ The program was tested on python 3.10.8, tensorflow 2.10.0 and was tested on win
 # How to run the program:
  - #### Follow these steps only if you are not using a docker image:
    - Extract venv from the zip file
-   - If windows, activate venv by running `venv/Scripts/activate`
-   - If linux, install the requirements. I recommend using a new venv so that you don't mess with your current installation
-   - Run setup.py
+   - **If windows**, activate venv by running `venv/Scripts/activate`
+   - **If linux**, install the requirements. I recommend using a new venv so that you don't mess with your current installation
+   - Run **setup.py**
 
 
 - **Save** your train and test csv's in the respective training and testing folders.
