@@ -115,6 +115,7 @@ def tune_hyperparameters(continue_training=False):
     np.random.seed(51)
     tf.keras.backend.clear_session()
 
+    utils.read_schema()
     utils.set_hp_tuning_range(train_data_list=data.load_train_from_file())
 
     tune_hp_ranges = utils.load_dict_from_json(config.HP_TUNE_RANGE_JSON_SAVE_PATH)
