@@ -13,6 +13,7 @@ create_folder(config.TRAIN_DATA_FOLDER)
 create_folder(config.TEST_DATA_FOLDER)
 create_folder(config.OUTPUT_FOLDER_PATH)
 create_folder(config.SAVE_FOLDER)
+create_folder(config.TESTING_OUTPUTS_PATH)
 print("Folders created")
 
 if not os.path.exists(config.TRAINING_USER_CHOICE_SAVE_PATH):
