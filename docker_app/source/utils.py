@@ -121,7 +121,7 @@ def set_hp_tuning_range(train_data_list):
 
 
     units_range = [64, 128]
-    num_layers_range = list(range(1, 6))  # 2 to 5 layers
+    num_layers_range = list(range(1, 4))  # 2 to 4 layers
 
     if train_data_len < small_list_data_len / 2:
         epochs = 25
