@@ -18,4 +18,4 @@ print("Folders created")
 
 if not os.path.exists(config.TRAINING_USER_CHOICE_SAVE_PATH):
     with open(config.TRAINING_USER_CHOICE_SAVE_PATH, 'w') as f:
-        json.dump({{"data_column_number": 2, "id_name": "S1", "model_choice": "LSTM_model", "OS": "windows"}}, f)
+        json.dump({"data_column_number": 2, "id_name": "S1", "model_choice": "LSTM_model", "OS": "windows"}, f)
