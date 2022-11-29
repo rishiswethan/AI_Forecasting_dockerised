@@ -10,19 +10,24 @@ have a look at the functions it calls for each user choice.
 
 The program was tested on python 3.10.8, tensorflow 2.10.0 and was tested on windows 11 with a GTX 1080ti. It should work on other hardware and OS was well.
 
+
 # How to run the program:
-- Either build or pull the docker image from the link
+ - #### Follow these steps only if you are not using a docker image:
+   - If windows, activate venv by running `venv/Scripts/activate` after extracting it from the zip file
+   - If linux, install the requirements. I recommend using a venv so that you don't mess with your current installation
+   - Run setup.py
+
+
 - **Save** your train and test csv's in the respective training and testing folders.
-- **Set choices** for, which model you wish to use in the save_files "model_choice" parameter
+- **Set choices** for, which model you wish to use, in the _save_files/user_choice.json_, "model_choice" parameter
   - You have 3 options:
     - "LSTM_model"
     - "RNN_model"
     - "GRU_model"
-- Use `docker run rishiswethan/aiforecasting python <program name>` to run the desired program
+- Use `docker run rishiswethan/aiforecasting python <program name>` to run the desired program. Use `python <program name>` in case you don't use docker
 - **Use tune.py** to tune the model.
 - **Use train.py** to train the program.
 - **Use test.py** to test the model.
-- **Use forecast.py** to test the model.
 - See **source/run.py** or the commented out function calls in **test.py** to see how to run the other forecasting options you have
 - See **source/config.py** to change path names
 
