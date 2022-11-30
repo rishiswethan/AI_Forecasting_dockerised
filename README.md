@@ -52,7 +52,7 @@ because the model only predicts one day ahead, so that minor or major errors don
 
 #### **t+1 prediction on test set of energy demand prediction data on LSTM:**
 
-![img.png](img.png)
+![img.png](other_files/img.png)
 
 ### Option 2:
 
@@ -61,7 +61,7 @@ Although it doesn't append from the test set, it can still test against it, as s
 
 #### **t+500 prediction compared against test set of energy demand prediction data on GRU:**
 
-![img_1.png](img_1.png)
+![img_1.png](other_files/img_1.png)
 
 ### Option 3:
 
@@ -69,4 +69,4 @@ This option allows you to blindly predict for as many days as you like, even if 
 no test set to compare against. 
 
 #### **t+500 prediction without test set of energy demand prediction data on RNN:**
-![img_2.png](img_2.png)
+![img_2.png](other_files/img_2.png)

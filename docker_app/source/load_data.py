@@ -86,9 +86,8 @@ def load_preprocess_data(enable_validation, window_size, batch_size, shuffle_buf
         test_dataset = None
         if enable_validation:
             recover = lambda x, y: y
-            # Split the dataset for training.
+            # Split the dataset for training and testing
             test_dataset = dataset.enumerate() .filter(is_test).map(recover)
-            # Split the dataset for testing/validation.
             train_dataset = dataset.enumerate().filter(is_train).map(recover)
             return train_dataset, test_dataset
         else:
