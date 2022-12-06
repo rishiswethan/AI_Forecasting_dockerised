@@ -13,8 +13,8 @@ if windows:
     OUTPUT_FOLDER_PATH = os.path.join(MAIN_PATH, "outputs")
 
 else:
-    INPUTS_PATH = "./ml_vol/inputs/"
-    OUTPUT_FOLDER_PATH = "./ml_vol/outputs"
+    INPUTS_PATH = '/opt/ml_vol/inputs'
+    OUTPUT_FOLDER_PATH = '/opt/ml_vol/outputs'
 
 TRAIN_FILE_SUBSTRING = "_train.csv"
 TEST_FILE_SUBSTRING = "_test_key.csv"
