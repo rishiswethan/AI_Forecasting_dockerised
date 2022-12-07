@@ -34,11 +34,12 @@ The program was tested on python 3.10.8, tensorflow 2.10.0 and was tested on win
 the first id will be chosen by default.
 
 
-- Use `docker run rishiswethan/aiforecasting python <program name>` to run the desired program. Use `python <program name>` in case you don't use docker
-- **Use tune** to tune the model.
-- **Use train** to train the program.
-- **Use test** to test the model in the default (t+1) mode.
-- **Use predict <num_of_days>** to forecast for n days without referring to a test set.
+- Use `docker run -it -v $(pwd)/docker_app/ml_vol:/opt/ml_vol rishiswethan/aiforecasting:latest <program name>` to run the desired program locally.
+Use `python <program name>` in case you don't use docker
+  - **Use tune** to tune the model.
+  - **Use train** to train the program.
+  - **Use test** to test the model in the default (t+1) mode.
+  - **Use predict <num_of_days>** to forecast for n days without referring to a test set.
 
 
 - See **source/run.py** or the commented out function calls in **test.py** to see how to run the other forecasting options you have.
