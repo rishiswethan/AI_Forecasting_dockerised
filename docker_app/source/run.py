@@ -1,9 +1,9 @@
 import traceback
 
-import source.model as model
-import source.forecast as forecast
-import source.load_data as load_data
-import source.utils as utils
+import docker_app.source.model as model
+import docker_app.source.forecast as forecast
+import docker_app.source.load_data as load_data
+import docker_app.source.utils as utils
 
 ch = int(input("Run the program in this order of 1 to 4. Progress will be saved in each step.\n"
                "1: Set choices(csv details, model choice)\n"

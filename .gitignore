@@ -7,3 +7,4 @@
 /docker_app/source/__pycache__/
 /__pycache__/
 /backup/
+/docker_app/ml_vol/

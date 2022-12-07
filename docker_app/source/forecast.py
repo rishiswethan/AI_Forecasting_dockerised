@@ -5,10 +5,10 @@ import matplotlib.pyplot as plt
 import tensorflow as tf
 import csv
 
-import source.load_data as data
-import source.config as config
-import source.utils as utils
-import source.model as model_py
+import docker_app.source.load_data as data
+import docker_app.source.config as config
+import docker_app.source.utils as utils
+import docker_app.source.model as model_py
 
 
 def forecast(test_keys_present=True, use_test_keys_for_forcast=False, num_days_arg=None):

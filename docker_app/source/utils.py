@@ -6,7 +6,7 @@ import json
 import math
 import csv
 
-import source.config as config
+import docker_app.source.config as config
 
 
 def save_dict_as_json(file_name, dict, over_write=False):
@@ -178,7 +178,7 @@ def read_schema(train_data_file_path=find_filename_match(known_filename=config.T
         column_name_list.append(column)
     print()
 
-    schema_filename = find_filename_match(directory=config.INPUTS_PATH, known_filename=config.SCHEMA_FILE_SUBSTRING)
+    schema_filename = find_filename_match(directory=config.DATA_SCHEMA_PATH, known_filename=config.SCHEMA_FILE_SUBSTRING)
     schema_json = load_dict_from_json(schema_filename)
     data_column_number = column_name_list.index(schema_json["inputDatasets"]["forecastingBaseHistory"]["targetField"])
     print("Chosen data column: ", column_name_list[data_column_number])

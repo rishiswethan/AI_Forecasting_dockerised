@@ -5,9 +5,9 @@ import matplotlib.pyplot as plt
 import keras_tuner
 from keras.models import *
 
-import source.utils as utils
-import source.config as config
-import source.load_data as data
+import docker_app.source.utils as utils
+import docker_app.source.config as config
+import docker_app.source.load_data as data
 
 shuffle_buffer_size = config.shuffle_buffer_size
 test_split_percent = config.test_split_percent

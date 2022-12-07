@@ -1,0 +1,6 @@
+#!/usr/local/bin/python
+
+import source.model as model
+
+if __name__ == '__main__':
+    model.tune_hyperparameters()
