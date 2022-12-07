@@ -6,7 +6,7 @@ import json
 import math
 import csv
 
-import docker_app.source.config as config
+import source.config as config
 
 
 def save_dict_as_json(file_name, dict, over_write=False):

@@ -18,10 +18,12 @@ COPY ./docker_app .
 ENV PATH="/usr/docker_app:${PATH}"
 RUN dos2unix train &&\
     dos2unix test &&\
+    dos2unix predict &&\
     dos2unix tune
 
 RUN chmod +x train &&\
     chmod +x test &&\
+    chmod +x predict &&\
     chmod +x tune
 
 RUN apt remove -y dos2unix\

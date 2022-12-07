@@ -20,9 +20,9 @@ The program was tested on python 3.10.8, tensorflow 2.10.0 and was tested on win
 
 
 - **Save** your train and test csv's in the respective training and testing folders.
-  - _*train.csv_ in _/inputs/data/training/_
-  - _*test_key.csv_ in _/inputs/data/testing/_
-  - _*schema.json_ in _/inputs/_
+  - _*train.csv_ in _/ml_vol/inputs/data/training/forecasting_base_
+  - _*test_key.csv_ in _/ml_vol/inputs/data/testing/forecasting_base_
+  - _*schema.json_ in _/ml_vol/inputs/data_config_
 
 
 - In the **_save_files/user_choice.json_**. Set choices for,
@@ -35,9 +35,10 @@ the first id will be chosen by default.
 
 
 - Use `docker run rishiswethan/aiforecasting python <program name>` to run the desired program. Use `python <program name>` in case you don't use docker
-- **Use tune.py** to tune the model.
-- **Use train.py** to train the program.
-- **Use test.py** to test the model in the default (t+1) mode.
+- **Use tune** to tune the model.
+- **Use train** to train the program.
+- **Use test** to test the model in the default (t+1) mode.
+- **Use predict <num_of_days>** to forecast for n days without referring to a test set.
 
 
 - See **source/run.py** or the commented out function calls in **test.py** to see how to run the other forecasting options you have.

@@ -3,8 +3,8 @@ import os
 import tensorflow as tf
 import math
 
-import docker_app.source.config as config
-import docker_app.source.utils as utils
+import source.config as config
+import source.utils as utils
 
 
 data_column_number = None
