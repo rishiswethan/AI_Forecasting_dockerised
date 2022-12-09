@@ -41,7 +41,7 @@ BEST_HP_JSON_SAVE_PATH = os.path.join(MODEL_FOLDER_PATH, "best_hyperparameters.j
 HP_TUNE_RANGE_JSON_SAVE_PATH = os.path.join(MODEL_FOLDER_PATH, "hyparameter_tune_range.json")
 TRAINING_USER_CHOICE_SAVE_PATH = os.path.join(MODEL_FOLDER_PATH, "user_choice.json")
 
-# ---PERMANANT HYPARAMETERS---------------------------------------------
+# ---PERMANENT HYPERPARAMETERS---------------------------------------------
 shuffle_buffer_size = 1000
 test_split_percent = 5
 max_epochs = 10000  # max number of epochs.
