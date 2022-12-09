@@ -10,7 +10,7 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 
 
 RUN mkdir -p /usr/docker_app
-RUN mkdir -p /opt/ml_vol
+# RUN mkdir -p /opt/ml_vol
 WORKDIR /usr/docker_app/
 COPY ./docker_app .
 # RUN python setup.py

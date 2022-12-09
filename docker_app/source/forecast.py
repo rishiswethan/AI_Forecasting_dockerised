@@ -29,8 +29,21 @@ def forecast(test_keys_present=True, use_test_keys_for_forcast=False, num_days_a
         test_series_norm = utils.normalise(test_series)
         # print("test_norm list: ", test_series_norm)
 
+    if not test_keys_present:
+        schema_filename = utils.find_filename_match(directory=config.DATA_SCHEMA_PATH,
+                                              known_filename=config.SCHEMA_FILE_SUBSTRING)
+        schema_json = utils.load_dict_from_json(schema_filename)
+
+    # In case this function is called with an argument for num_days_arg
     if num_days_arg != None:
         num_days = num_days_arg
+    # In case the num_days needs to be read from schema
+    elif not test_keys_present:
+        schema_filename = utils.find_filename_match(directory=config.DATA_SCHEMA_PATH,
+                                                    known_filename=config.SCHEMA_FILE_SUBSTRING)
+        schema_json = utils.load_dict_from_json(schema_filename)
+        num_days = schema_json['datasetSpecs']['forecastHorizonLength']
+    # Assumes it's testing against a test set
     else:
         num_days = len(test_series)
 

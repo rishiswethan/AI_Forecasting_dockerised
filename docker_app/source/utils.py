@@ -33,11 +33,13 @@ def load_dict_from_json(file_name):
 
     return d
 
+
 # save pickle object
 def save_object(file_name, object):
     f = open(file_name, 'wb')
     pickle.dump(object, f)
     f.close()
+
 
 # load pickle object
 def load_object(file_name):
@@ -55,7 +57,6 @@ def find_filename_match(known_filename, directory):
 
 # Goal of this function is to return a number between 1 and 0. Default is division with max, but you can use minmax_scaler as well
 def normalise(list, save_min_max=False, norm_range=(0, 1), use_minmax=False):
-
     X = np.array(list).squeeze()
 
     min_norm_range, max_norm_range = norm_range
@@ -86,7 +87,6 @@ def normalise(list, save_min_max=False, norm_range=(0, 1), use_minmax=False):
 
 
 def inverse_normalise(list, use_minmax=False):
-
     X = np.array(list).squeeze()
     (X_min, X_max) = load_object(config.NORM_SCALAR_SAVE_PATH)
 
@@ -110,7 +110,8 @@ def set_hp_tuning_range(train_data_list):
     train_data_len = len(train_data_list)
     small_list_data_len = 5000  # Lists with length smaller than this can be deemed as too small
 
-    min_batch_size = int(find_nearest_pow_2(math.sqrt(train_data_len)) / 2)  # Set batch size as closest to sqrt of train_data_len
+    min_batch_size = int(
+        find_nearest_pow_2(math.sqrt(train_data_len)) / 2)  # Set batch size as closest to sqrt of train_data_len
     batch_size_range = [min_batch_size]
     window_size_range = []
     if (train_data_len > small_list_data_len):
@@ -118,7 +119,6 @@ def set_hp_tuning_range(train_data_list):
             window_size_range.append(window)
     else:
         window_size_range = list(range(30, min(round(train_data_len / 2), 90), 30))
-
 
     units_range = [64, 128]
     num_layers_range = list(range(1, 4))  # 2 to 4 layers
@@ -133,17 +133,18 @@ def set_hp_tuning_range(train_data_list):
     if model_choice == config.RNN_model_name:
         epochs = round(epochs / 4)
 
-
     hp_tune_range_dict = {'batch_size_range': batch_size_range,
-                            'window_size_range': window_size_range,
-                            'units_range': units_range,
-                            'num_layers_range': num_layers_range,
-                            # 'dense_range': dense_range,
-                            'tune_epochs': epochs,  # This is the number of times a single trail of tuning will run. This value will also be used for lr auto reduce
+                          'window_size_range': window_size_range,
+                          'units_range': units_range,
+                          'num_layers_range': num_layers_range,
+                          # 'dense_range': dense_range,
+                          'tune_epochs': epochs,
+                          # This is the number of times a single trail of tuning will run. This value will also be used for lr auto reduce
                           }
 
     def set_def_hp():
-        print(f"------------SETTING DEFAULT HP FOR TRAINING {load_dict_from_json(config.TRAINING_USER_CHOICE_SAVE_PATH)['id_name']}")
+        print(
+            f"------------SETTING DEFAULT HP FOR TRAINING {load_dict_from_json(config.TRAINING_USER_CHOICE_SAVE_PATH)['id_name']}")
         best_hp = {"units": units_range[1],
                    "num_layers": 2,
                    "window_size": window_size_range[0],
@@ -158,18 +159,19 @@ def set_hp_tuning_range(train_data_list):
             set_def_hp()
 
         elif best_hp["tuning_done_for"] != load_dict_from_json(config.TRAINING_USER_CHOICE_SAVE_PATH)["id_name"]:
-            print(f"New id_name {load_dict_from_json(config.TRAINING_USER_CHOICE_SAVE_PATH)['id_name']} found instead of old, {best_hp['tuning_done_for']}")
+            print(
+                f"New id_name {load_dict_from_json(config.TRAINING_USER_CHOICE_SAVE_PATH)['id_name']} found instead of old, {best_hp['tuning_done_for']}")
             set_def_hp()
     else:
         print("No best_hyperparameters file found")
         set_def_hp()
 
-
     save_dict_as_json(config.HP_TUNE_RANGE_JSON_SAVE_PATH, hp_tune_range_dict)
 
 
 # Call this to read and store column number from the schema. This also sets a default id_name if none is detected
-def read_schema(train_data_file_path=find_filename_match(known_filename=config.TRAIN_FILE_SUBSTRING, directory=config.TRAIN_DATA_FOLDER)):
+def read_schema(train_data_file_path=find_filename_match(known_filename=config.TRAIN_FILE_SUBSTRING,
+                                                         directory=config.TRAIN_DATA_FOLDER)):
     train_csv_data = list(csv.reader(open(train_data_file_path, 'r')))
 
     column_name_list = []
@@ -178,7 +180,8 @@ def read_schema(train_data_file_path=find_filename_match(known_filename=config.T
         column_name_list.append(column)
     print()
 
-    schema_filename = find_filename_match(directory=config.DATA_SCHEMA_PATH, known_filename=config.SCHEMA_FILE_SUBSTRING)
+    schema_filename = find_filename_match(directory=config.DATA_SCHEMA_PATH,
+                                          known_filename=config.SCHEMA_FILE_SUBSTRING)
     schema_json = load_dict_from_json(schema_filename)
     data_column_number = column_name_list.index(schema_json["inputDatasets"]["forecastingBaseHistory"]["targetField"])
     print("Chosen data column: ", column_name_list[data_column_number])
@@ -193,16 +196,18 @@ def read_schema(train_data_file_path=find_filename_match(known_filename=config.T
     user_choices["data_column_number"] = data_column_number
     if "id_name" in user_choices.keys():
         if not (user_choices["id_name"] in id_name_list):
-            print(f"--------SETTING DEFAULT id_name {id_name_list[0]} in user_choice.json AS NO VALID CHOICE IS DETECTED----------")
-            user_choices["id_name"] = id_name_list[0]  # Set a default id_name if there was no id name chosen by the user, or if the one chosen is not from the list
+            print(
+                f"--------SETTING DEFAULT id_name {id_name_list[0]} in user_choice.json AS NO VALID CHOICE IS DETECTED----------")
+            user_choices["id_name"] = id_name_list[
+                0]  # Set a default id_name if there was no id name chosen by the user, or if the one chosen is not from the list
 
     save_dict_as_json(config.TRAINING_USER_CHOICE_SAVE_PATH, user_choices)
 
 
-
 # Ask user which name should be chosen to train, if there are many.
 # Example, if there are multiple stock data in one file, a list would be displayed asking the user to enter which stock they wish to use
-def extract_id_names(train_data_file_path=find_filename_match(known_filename=config.TRAIN_FILE_SUBSTRING, directory=config.TRAIN_DATA_FOLDER)):
+def extract_id_names(train_data_file_path=find_filename_match(known_filename=config.TRAIN_FILE_SUBSTRING,
+                                                              directory=config.TRAIN_DATA_FOLDER)):
     train_csv_data = list(csv.reader(open(train_data_file_path, 'r')))
 
     id_name_list = []
@@ -225,7 +230,8 @@ def extract_id_names(train_data_file_path=find_filename_match(known_filename=con
 
 
 # Store the column of the csv file that is used for forcasting, and the symbol of the item you wish to forecast, if there are multiple
-def read_csv_store_user_choice(train_data_file_path=find_filename_match(known_filename=config.TRAIN_FILE_SUBSTRING, directory=config.TRAIN_DATA_FOLDER)):
+def read_csv_store_user_choice(train_data_file_path=find_filename_match(known_filename=config.TRAIN_FILE_SUBSTRING,
+                                                                        directory=config.TRAIN_DATA_FOLDER)):
     global data_column_number
 
     read_schema()
@@ -239,7 +245,8 @@ def read_csv_store_user_choice(train_data_file_path=find_filename_match(known_fi
 
     chosen_list_num = 0
     if len(id_name_list) > 1:
-        chosen_list_num = int(input("\nEnter the number which is followed by the list you which you wish to forecast: ")) - 1
+        chosen_list_num = int(
+            input("\nEnter the number which is followed by the list you which you wish to forecast: ")) - 1
         print("Chosen list name:", id_name_list[chosen_list_num])
 
     # Ask user which model type they wish to use
@@ -260,7 +267,7 @@ def read_csv_store_user_choice(train_data_file_path=find_filename_match(known_fi
         user_choices = {}
 
     user_choices["data_column_number"] = data_column_number
-    user_choices["id_name"] =  id_name_list[chosen_list_num]
+    user_choices["id_name"] = id_name_list[chosen_list_num]
     user_choices["model_choice"] = model_choice
     save_dict_as_json(config.TRAINING_USER_CHOICE_SAVE_PATH, user_choices)
 

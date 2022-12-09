@@ -26,9 +26,9 @@ SCHEMA_FILE_SUBSTRING = "_schema.json"
 
 DATA_FOLDER = os.path.join(INPUTS_PATH, "data")
 TRAIN_DATA_FOLDER = os.path.join(DATA_FOLDER, "training")
-TRAIN_DATA_FOLDER = os.path.join(TRAIN_DATA_FOLDER, "forecasting_base")
+TRAIN_DATA_FOLDER = os.path.join(TRAIN_DATA_FOLDER, "forecastingBaseHistory")
 TEST_DATA_FOLDER = os.path.join(DATA_FOLDER, "testing")
-TEST_DATA_FOLDER = os.path.join(TEST_DATA_FOLDER, "forecasting_base")
+TEST_DATA_FOLDER = os.path.join(TEST_DATA_FOLDER, "forecastingBaseHistory")
 
 DATA_SCHEMA_PATH = os.path.join(INPUTS_PATH, "data_config")
 TESTING_OUTPUTS_PATH = os.path.join(OUTPUT_FOLDER_PATH, "testing_outputs")
