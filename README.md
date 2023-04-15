@@ -1,14 +1,11 @@
-Download the docker image for this project in the link below\
+Download the Docker image for this project using the link below:
 https://hub.docker.com/repository/registry-1.docker.io/rishiswethan/aiforecasting/general
 
-This project is meant to be a plug and play template, for anyone looking to build a univariate forecasting model using LSTM, GRU or RNN.
-This can run on pretty much any univariate forecasting data, as long as it's correctly formatted,
-as seen in the data/rt_benchmark_datasets. This capability is achived because it uses BayesianOptimization of Keras Tuner to find the right hyperparameters.
-Other hyperparameters are automatically inferred by the program by looking at the properties of the data.
-To have a quick look at how to execute this program, and which functions do what, check the _Run.py_ program and
-have a look at the functions it calls for each user choice.
+This project serves as a user-friendly template designed for anyone seeking to build a univariate forecasting model using LSTM, GRU, or RNN. It can run on virtually any univariate forecasting dataset, provided that the data is appropriately formatted, as demonstrated in the data/rt_benchmark_datasets. This adaptability is achieved by utilizing Bayesian Optimization from Keras Tuner to identify the optimal hyperparameters. The program automatically infers other hyperparameters based on the properties of the input data. For a quick overview of how to execute this program and understand the functions associated with each user choice, please refer to the Run.py file.
 
-The program was tested on python 3.10.8, tensorflow 2.10.0 and was tested on windows 11 with a GTX 1080ti. It should work on other hardware and OS was well.
+The program has been tested on Python 3.10.8 and TensorFlow 2.10.0, running on Windows 11 with a GTX 1080 Ti. It should also function smoothly on other hardware and operating systems.
+
+Feel free to reach out if you have any questions or need further assistance with the project.
 
 
 # How to run the program:
